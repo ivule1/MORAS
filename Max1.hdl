@@ -1,0 +1,9 @@
+CHIP Max1
+{
+	IN a[16], b[16];
+	OUT out[16];
+	
+	PARTS:
+	ALU(x= a, y= b, zx= false, nx= true, zy= false, ny= false, f= true,no= true,out= false,zr= false,ng= sel );
+	Mux16(a = a, b = b, sel = sel, out = out);
+}

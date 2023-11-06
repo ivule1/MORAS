@@ -1,0 +1,39 @@
+CHIP NumBlocks
+{
+	IN in[16];
+	OUT out[16];
+	
+	
+	PARTS:
+	Xor(a = in[0], b = in[1], out = r1);
+	Xor(a = in[1], b = in[2], out = r2);
+	Xor(a = in[2], b = in[3], out = r3);
+	Xor(a = in[3], b = in[4], out = r4);
+	Xor(a = in[4], b = in[5], out = r5);
+	Xor(a = in[5], b = in[6], out = r6);
+	Xor(a = in[6], b = in[7], out = r7);
+	Xor(a = in[7], b = in[8], out = r8);
+	Xor(a = in[8], b = in[9], out = r9);
+	Xor(a = in[9], b = in[10], out = r10);
+	Xor(a = in[10], b = in[11], out = r11);
+	Xor(a = in[11], b = in[12], out = r12);
+	Xor(a = in[12], b = in[13], out = r13);
+	Xor(a = in[13], b = in[14], out = r14);
+	Xor(a = in[14], b = in[15], out = r15);
+	
+	Add16(a[0] = true, a[1..15] = false,  b[0]= r1, b[1..15] = false, out = a1 );
+	Add16(a = a1, b[1..15] = false, b[0]= r2, out = a2 );
+	Add16(a = a2, b[1..15] = false, b[0]= r3, out = a3 );
+	Add16(a = a3, b[1..15] = false, b[0]= r4, out = a4 );
+	Add16(a = a4, b[1..15] = false, b[0]= r5, out = a5 );
+	Add16(a = a5, b[1..15] = false, b[0]= r6, out = a6 );
+	Add16(a = a6, b[1..15] = false, b[0]= r7, out = a7 );
+	Add16(a = a7, b[1..15] = false, b[0]= r8, out = a8 );
+	Add16(a = a8, b[1..15] = false, b[0]= r9, out = a9 );
+	Add16(a = a9, b[1..15] = false, b[0]= r10, out = a10 );
+	Add16(a = a10, b[1..15] = false, b[0]= r11, out = a11 );
+	Add16(a = a11, b[1..15] = false, b[0]= r12, out = a12 );
+	Add16(a = a12, b[1..15] = false, b[0]= r13, out = a13 );
+	Add16(a = a13, b[1..15] = false, b[0]= r14, out = a14 );
+	Add16(a = a14, b[1..15] = false, b[0]= r15, out = out );
+}

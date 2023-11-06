@@ -1,0 +1,11 @@
+CHIP zad1b
+{
+	IN a,b,c;
+	OUT out;
+	
+	PARTS:
+	Not(in = b, out = nb);
+	And(a = a, b = nb, out = aib);
+	And(a = aib, b = c, out = out);
+	
+}

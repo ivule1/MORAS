@@ -1,0 +1,8 @@
+CHIP Less
+{
+    IN a[16], b[16];
+    OUT out;
+ 
+    PARTS:
+	ALU(x= a, y= b, zx= false, nx= true, zy= false, ny= false, f= true,no= true,out= false,zr= false,ng= out );
+}
