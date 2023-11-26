@@ -1,0 +1,17 @@
+CHIP Log2 
+{
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    And(a=in[15], b=true, out=msb);
+
+    Clz(in=in, out=c);
+
+	Not16(in = c, out = nc);
+	Add16(a = nc, b[0] = true, b[1..15] = false, out = supB);
+
+	Add16(a[0..3] = true, a[4..15] = false, b = supB, out = res);
+	
+    Mux16(a=res, b=true, sel=msb, out=out);
+}

@@ -1,0 +1,104 @@
+CHIP Clz 
+{
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+
+    Or(a=in[15], b=false, out=or15);
+    Not(in=or15, out=nOr15);
+    
+    Add16(a=false, b[0]=nOr15, b[1..15]=false, out=temp15);
+    And(a=nOr15, b=true, out=o15);    
+
+    
+    Or(a=in[14], b=false, out=or14);
+    Not(in=or14, out=nOr14);
+    Add16(a=temp15, b[0]=nOr14, b[1..15]=false, out=temp14);
+    And(a=o15, b=nOr14, out=o14);
+    Mux16(a=temp15, b=temp14, sel=o14, out=res14);
+
+    Or(a=in[13], b=false, out=or13);
+    Not(in=or13, out=nOr13);
+    Add16(a=temp14, b[0]=nOr13, b[1..15]=false, out=temp13);
+    And(a=o14, b=nOr13, out=o13);
+    Mux16(a=res14, b=temp13, sel=o13, out=res13);
+
+    Or(a=in[12], b=false, out=or12);
+    Not(in=or12, out=nOr12);
+    Add16(a=temp13, b[0]=nOr12, b[1..15]=false, out=temp12);
+    And(a=o13, b=nOr12, out=o12);
+    Mux16(a=res13, b=temp12, sel=o12, out=res12);
+
+    Or(a=in[11], b=false, out=or11);
+    Not(in=or11, out=nOr11);
+    Add16(a=temp12, b[0]=nOr11, b[1..15]=false, out=temp11);
+    And(a=o12, b=nOr11, out=o11);
+    Mux16(a=res12, b=temp11, sel=o11, out=res11);
+
+    Or(a=in[10], b=false, out=or10);
+    Not(in=or10, out=nOr10);
+    Add16(a=temp11, b[0]=nOr10, b[1..15]=false, out=temp10);
+    And(a=o11, b=nOr10, out=o10);
+    Mux16(a=res11, b=temp10, sel=o10, out=res10);
+
+    Or(a=in[9], b=false, out=or9);
+    Not(in=or9, out=nOr9);
+    Add16(a=temp10, b[0]=nOr9, b[1..15]=false, out=temp9);
+    And(a=o10, b=nOr9, out=o9);
+    Mux16(a=res10, b=temp9, sel=o9, out=res9);
+
+    Or(a=in[8], b=false, out=or8);
+    Not(in=or8, out=nOr8);
+    Add16(a=temp9, b[0]=nOr8, b[1..15]=false, out=temp8);
+    And(a=o9, b=nOr8, out=o8);
+    Mux16(a=res9, b=temp8, sel=o8, out=res8);
+
+    Or(a=in[7], b=false, out=or7);
+    Not(in=or7, out=nOr7);
+    Add16(a=temp8, b[0]=nOr7, b[1..15]=false, out=temp7);
+    And(a=o8, b=nOr7, out=o7);
+    Mux16(a=res8, b=temp7, sel=o7, out=res7);
+
+    Or(a=in[6], b=false, out=or6);
+    Not(in=or6, out=nOr6);
+    Add16(a=temp7, b[0]=nOr6, b[1..15]=false, out=temp6);
+    And(a=o7, b=nOr6, out=o6);
+    Mux16(a=res7, b=temp6, sel=o6, out=res6);
+
+    Or(a=in[5], b=false, out=or5);
+    Not(in=or5, out=nOr5);
+    Add16(a=temp6, b[0]=nOr5, b[1..15]=false, out=temp5);
+    And(a=o6, b=nOr5, out=o5);
+    Mux16(a=res6, b=temp5, sel=o5, out=res5);
+
+    Or(a=in[4], b=false, out=or4);
+    Not(in=or4, out=nOr4);
+    Add16(a=temp5, b[0]=nOr4, b[1..15]=false, out=temp4);
+    And(a=o5, b=nOr4, out=o4);
+    Mux16(a=res5, b=temp4, sel=o4, out=res4);
+
+    Or(a=in[3], b=false, out=or3);
+    Not(in=or3, out=nOr3);
+    Add16(a=temp4, b[0]=nOr3, b[1..15]=false, out=temp3);
+    And(a=o4, b=nOr3, out=o3);
+    Mux16(a=res4, b=temp3, sel=o3, out=res3);
+
+    Or(a=in[2], b=false, out=or2);
+    Not(in=or2, out=nOr2);
+    Add16(a=temp3, b[0]=nOr2, b[1..15]=false, out=temp2);
+    And(a=o3, b=nOr2, out=o2);
+    Mux16(a=res3, b=temp2, sel=o2, out=res2);
+
+    Or(a=in[1], b=false, out=or1);
+    Not(in=or1, out=nOr1);
+    Add16(a=temp2, b[0]=nOr1, b[1..15]=false, out=temp1);
+    And(a=o2, b=nOr1, out=o1);
+    Mux16(a=res2, b=temp1, sel=o1, out=res1);
+
+    Or(a=in[0], b=false, out=or);
+    Not(in=or, out=nOr);
+    Add16(a=temp1, b[0]=nOr, b[1..15]=false, out=temp);
+    And(a=o1, b=nOr, out=o);
+    Mux16(a=res1, b=temp, sel=o, out=out);
+}
